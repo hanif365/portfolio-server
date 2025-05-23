@@ -1,6 +1,6 @@
 import { Router } from "express";
 // import authRoutes from "../modules/auth/auth.route";
-
+import { ProjectRoutes } from "../modules/project/project.route";
 
 const router = Router();
 
@@ -14,7 +14,10 @@ const moduleRoutes: Routes[] = [
   //   path: '/auth',
   //   route: authRoutes,
   // },
-   
+  {
+    path: '/projects',
+    route: ProjectRoutes,
+  },
 ];
 
 // register all module routes dynamically
