@@ -1,9 +1,9 @@
 import { Router } from "express";
-// import authRoutes from "../modules/auth/auth.route";
 import { ProjectRoutes } from "../modules/project/project.route";
 import { BlogRoutes } from "../modules/blog/blog.route";
 import { SkillRoutes } from "../modules/skill/skill.route";
 import { ExperienceRoutes } from "../modules/experience/experience.route";
+import { AuthRoutes } from "../modules/auth/auth.route";
 
 const router = Router();
 
@@ -13,10 +13,10 @@ export interface Routes {
 }
 
 const moduleRoutes: Routes[] = [
-  // {
-  //   path: '/auth',
-  //   route: authRoutes,
-  // },
+  {
+    path: '/auth',
+    route: AuthRoutes,
+  },
   {
     path: '/projects',
     route: ProjectRoutes,
