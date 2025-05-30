@@ -1,4 +1,4 @@
-import jwt, { JwtPayload } from 'jsonwebtoken';
+import jwt, { JwtPayload, SignOptions } from 'jsonwebtoken';
 import { TJwtPayload, TRole } from './auth.interface';
 import config from '../../config';
 
@@ -12,9 +12,11 @@ export const createAccessToken = (
     role,
   };
 
-  return jwt.sign(payload, config.jwt_access_secret as string, {
-    expiresIn: config.jwt_access_expires_in,
-  });
+  const options: SignOptions = {
+    expiresIn: config.jwt_access_expires_in as any,
+  };
+
+  return jwt.sign(payload, config.jwt_access_secret as string, options);
 };
 
 // Create refresh token
@@ -27,9 +29,11 @@ export const createRefreshToken = (
     role,
   };
 
-  return jwt.sign(payload, config.jwt_refresh_secret as string, {
-    expiresIn: config.jwt_refresh_expires_in,
-  });
+  const options: SignOptions = {
+    expiresIn: config.jwt_refresh_expires_in as any,
+  };
+
+  return jwt.sign(payload, config.jwt_refresh_secret as string, options);
 };
 
 // Verify access token
